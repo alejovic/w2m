@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.fail;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 //@ActiveProfiles("test")
-class W2mApplicationTests {
+class W2mServiceTests {
 
     @Autowired
     HeroService service;

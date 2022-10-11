@@ -32,8 +32,8 @@ public class HeroService {
         throw new HeroException(HeroException.ERROR_HERO_NOT_FOUND, "The user does not exist in the repository.");
     }
 
-    public void saveHero(Hero hero){
-        repository.save(hero);
+    public Hero saveHero(Hero hero){
+        return repository.save(hero);
     }
 
 }
