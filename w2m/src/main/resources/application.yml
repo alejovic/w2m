@@ -1,0 +1,7 @@
+logging:
+  file:
+    name: w2m-pruebatecnica.log
+spring:
+  profiles:
+    active: dev
+
