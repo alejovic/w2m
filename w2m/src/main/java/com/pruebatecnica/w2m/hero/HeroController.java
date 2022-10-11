@@ -1,5 +1,6 @@
 package com.pruebatecnica.w2m.hero;
 
+import com.pruebatecnica.w2m.util.annotation.timed.CustomTimed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ public class HeroController {
     HeroService service;
 
     @GetMapping
+    @CustomTimed
     public ResponseEntity<List<Hero>> getAllHeroes() {
         try {
             final List<Hero> heroes = service.findAll();
@@ -28,6 +30,7 @@ public class HeroController {
     }
 
     @GetMapping("/{id}")
+    @CustomTimed
     public ResponseEntity<Hero> getHeroById(@PathVariable("id") Long id) {
         try {
             final Hero hero = service.getHeroById(id);
@@ -38,12 +41,14 @@ public class HeroController {
     }
 
     @PostMapping
+    @CustomTimed
     public ResponseEntity<Hero> createHero(@RequestBody Hero hero) {
         Hero _hero = service.saveHero(new Hero(hero.getName()));
         return new ResponseEntity<>(_hero, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
+    @CustomTimed
     public ResponseEntity<Hero> updateHero(@PathVariable("id") Long id, @RequestBody Hero hero) {
         try {
             final Hero _hero = service.getHeroById(id);
